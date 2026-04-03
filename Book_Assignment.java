@@ -16,26 +16,32 @@ class Book {
     }
 
     void printBookInfo() {
+        System.out.println("The book information:");
         System.out.println("Name of the book: " + name);
         System.out.println("Author: " + author);
-        System.out.println("Publisher: " + publisher);
+        System.out.println("Book publisher: " + publisher);
         System.out.println("Number of pages: " + pages);
-        System.out.println("Price: $" + price);
+        System.out.printf("Price: $%.2f%n", price);
     }
 }
 
 class EBook extends Book {
-    double size;
+    double bookSize;
 
-    EBook(String name, String author, String publisher, int pages, double price, double size) {
+    EBook(String name, String author, String publisher, int pages, double price, double bookSize) {
         super(name, author, publisher, pages, price);
-        this.size = size;
+        this.bookSize = bookSize;
     }
 
     @Override
     void printBookInfo() {
-        super.printBookInfo();
-        System.out.println("Size: " + size + " MB");
+        System.out.println("The eBook information:");
+        System.out.println("Name of the book: " + name);
+        System.out.println("Author: " + author);
+        System.out.println("Book publisher: " + publisher);
+        System.out.println("Number of pages: " + pages);
+        System.out.printf("Price: $%.2f%n", price);
+        System.out.printf("Size: %.2f MB%n", bookSize);
     }
 }
 
@@ -44,35 +50,44 @@ public class Book_Assignment {
         Scanner sc = new Scanner(System.in);
 
         System.out.print("Enter the name of the book: ");
-        String bookName = sc.nextLine();
+        String bName = sc.nextLine();
+
         System.out.print("Enter the name of the author: ");
-        String bookAuthor = sc.nextLine();
+        String bAuthor = sc.nextLine();
+
         System.out.print("Enter the name of the publisher: ");
-        String bookPublisher = sc.nextLine();
+        String bPublisher = sc.nextLine();
+
         System.out.print("Enter the number of pages of the book: ");
-        int bookPages = sc.nextInt();
+        int bPages = sc.nextInt();
+
         System.out.print("Enter the price of the book ($): ");
-        double bookPrice = sc.nextDouble();
-        sc.nextLine(); 
+        double bPrice = sc.nextDouble();
+        sc.nextLine();
 
-        Book book = new Book(bookName, bookAuthor, bookPublisher, bookPages, bookPrice);
+        Book book = new Book(bName, bAuthor, bPublisher, bPages, bPrice);
+
         System.out.print("Enter the name of the eBook: ");
-        String ebookName = sc.nextLine();
-        System.out.print("Enter the name of the author: ");
-        String ebookAuthor = sc.nextLine();
-        System.out.print("Enter the name of the publisher: ");
-        String ebookPublisher = sc.nextLine();
-        System.out.print("Enter the number of pages of the eBook: ");
-        int ebookPages = sc.nextInt();
-        System.out.print("Enter the price of the eBook ($): ");
-        double ebookPrice = sc.nextDouble();
-        System.out.print("Enter the size of the eBook (MB): ");
-        double ebookSize = sc.nextDouble();
+        String eName = sc.nextLine();
 
-        EBook ebook = new EBook(ebookName, ebookAuthor, ebookPublisher, ebookPages, ebookPrice, ebookSize);
-        System.out.println("\nThe book information:");
+        System.out.print("Enter the name of the author: ");
+        String eAuthor = sc.nextLine();
+
+        System.out.print("Enter the name of the publisher: ");
+        String ePublisher = sc.nextLine();
+
+        System.out.print("Enter the number of pages of the eBook: ");
+        int ePages = sc.nextInt();
+
+        System.out.print("Enter the price of the eBook ($): ");
+        double ePrice = sc.nextDouble();
+
+        System.out.print("Enter the size of the eBook (MB): ");
+        double eSize = sc.nextDouble();
+
+        EBook ebook = new EBook(eName, eAuthor, ePublisher, ePages, ePrice, eSize);
+
         book.printBookInfo();
-        System.out.println("\nThe eBook information:");
         ebook.printBookInfo();
 
         sc.close();
